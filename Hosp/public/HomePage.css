@@ -1,0 +1,185 @@
+/* Doctor Container */
+body {
+  background: linear-gradient(to right, #dfe7ee, #fefefe);
+
+}
+
+.header_cont {
+  background: linear-gradient(to right, #d9e2eb, #9bbad8, #fefefe) !important;
+}
+
+.Doctor_container {
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  gap: 5px;
+  padding: 5px;
+  margin: auto;
+  /* Centers content */
+  background-color: #f9fafb;
+}
+
+.patient-card {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Doctor Card */
+.card {
+  width: 15rem;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 12px rgba(230, 10, 10, 0.2);
+  background: #ffffff;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* Heading */
+h1 {
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;
+  color: #0e0e0e;
+  display: inline-block;
+  position: relative;
+  margin-bottom: 20px;
+  text-shadow:
+    2px 2px 4px rgba(0, 0, 0, 0.3),
+    4px 4px 14px rgba(20, 20, 20, 0.5);
+}
+
+/* Profile Picture */
+.Profil_pic {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  position: absolute;
+  top: 15px;
+  right: 10px;
+  border: 3px solid #fff;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Profile Name */
+.Profil_Name {
+  position: fixed;
+  top: 15px;
+  right: 70px;
+  font-weight: bold;
+  color: #333;
+  font-size: 16px;
+}
+
+/* Card Title */
+.card_title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  padding: 5px;
+  text-align: center;
+  border-radius: 5px;
+  background: #f3f3f3;
+  border-bottom: 2px solid #ddd;
+}
+
+/* Card Text */
+.card_text {
+  text-align: left;
+  font-size: 15px;
+  color: #555;
+  padding: 5px 0;
+}
+
+/* Card Image */
+.card-img-top {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+/* Card Body */
+.card-body {
+  padding: 15px;
+  text-align: center;
+}
+
+/* Book Appointment Button */
+.btn-primary {
+  width: 100%;
+  border-radius: 5px;
+  font-weight: bold;
+  background: #007bff;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+/* Doctor Specialization Box */
+h6 {
+  border: 1px solid #222;
+  background-color: #2d2d2d;
+  color: #ffffff;
+  margin-left: 2px;
+  padding: 4px;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .Doctor_container {
+    justify-content: space-evenly;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 768px) {
+  .Doctor_container {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .Profil_Name {
+    right: 50px;
+  }
+
+  .Profil_pic {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    width: 90%;
+  }
+
+  .Profil_Name {
+    right: 40px;
+    font-size: 14px;
+  }
+
+  .Profil_pic {
+    width: 35px;
+    height: 35px;
+  }
+}

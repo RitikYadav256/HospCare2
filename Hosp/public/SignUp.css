@@ -1,0 +1,21 @@
+.signup-container {
+  width: 500px;
+  border: 2px solid #ddd;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #f9fafa;
+  position: absolute;
+  margin-top: 50px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.row1,
+.row2,
+.row3,
+.row4 {
+  display: flex;
+  padding: 5px;
+}

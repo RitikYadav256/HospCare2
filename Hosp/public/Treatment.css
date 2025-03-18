@@ -1,0 +1,60 @@
+.patient-card {
+  width: 100%;
+  /* Ensure full width */
+  max-width: 400px;
+  /* Increase max-width */
+  min-height: 400px;
+  /* Ensure proper height */
+  overflow: visible;
+  /* Prevent content cutting */
+}
+
+.main_container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+
+.card1 {
+  background-color: #212529;
+  padding: 10px;
+}
+
+.qty-input {
+  width: 60px;
+  text-align: center;
+}
+
+#totalRow {
+  font-weight: bold;
+}
+
+#payButton {
+  display: none;
+}
+
+/* Navbar Styling */
+.navbar {
+  background-color: #007bff;
+}
+
+.navbar-brand,
+.nav-link {
+  color: white !important;
+}
+
+.nav-link:hover {
+  color: #d4e2ff !important;
+}
+
+.Imgage_icon {
+  width: 100px;
+  height: 50px;
+}

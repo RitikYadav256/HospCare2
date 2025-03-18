@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/SignUp.css">
+</head>
+
+<body>
+  <div class="signup-container">
+    <h2 class="text-center">Sign Up</h2>
+    <form action="/signup/submit" method="post" enctype="multipart/form-data" onsubmit="return validatePassword()">
+
+      <!-- Personal Details -->
+      <div class="row1">
+        <div class="col-md-6 mb-3">
+          <label class="form-label">Full Name</label>
+          <input type="text" class="form-control" name="name" required>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label class="form-label">Date of Birth</label>
+          <input type="date" class="form-control" name="DOB" required>
+        </div>
+      </div>
+      <div class="row2">
+
+
+
+      </div>
+      <div class="row2">
+        <div class="col-md-6 mb-3">
+          <label class="form-label">Email address</label>
+          <input type="email" class="form-control" name="email" required>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label class="form-label">Phone</label>
+          <input type="tel" class="form-control" name="phone" required>
+        </div>
+      </div>
+
+      <!-- Category Selection -->
+      <div class="row2">
+        <div class="col-md-3 mb-3 ">
+          <label class="form-label">Address</label>
+          <input type="text" class="form-control w-650" name="address" required>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Category</label>
+          <select class="form-control" name="category" id="categorySelect" required>
+            <option value="" selected disabled>Select Category</option>
+            <option value="Doctor">Doctor</option>
+            <option value="Patient">Patient</option>
+            <option value="Medical">Medical</option>
+          </select>
+        </div>
+      </div>
+      <!-- Doctor Speciality -->
+      <div class="mb-3 d-none" id="doctorSpeciality">
+        <label class="form-label">Speciality</label>
+        <input type="text" class="form-control" name="speciality">
+      </div>
+
+      <!-- Time Slot Booking (Only for Doctor) -->
+      <div class="mb-3 d-none" id="timeSlot">
+        <label class="form-label">Available Time Slot</label>
+        <select class="form-control" name="timeSlot">
+          <option value="" selected disabled>Select Time Slot</option>
+          <option value="9:00 AM - 2:00 PM">9:00 AM - 2:00 PM</option>
+          <option value="3:00 PM - 6:00 PM">3:00 PM - 6:00 PM</option>
+        </select>
+      </div>
+
+      <!-- Medical Type (Only for Medical) -->
+      <div class="mb-3 d-none" id="medicalType">
+        <label class="form-label">Type of Medical</label>
+        <select class="form-control" name="medicalType">
+          <option value="Medicine">Medicine</option>
+          <option value="Checkup">Checkup</option>
+          <option value="Surgical">Surgical</option>
+        </select>
+      </div>
+
+      <!-- Password Fields -->
+      <div class="row">
+        <div class="col-md-3 mb-3">
+          <label class="form-label">Password</label>
+          <input type="password" class="form-control" id="password" name="password" required>
+        </div>
+        <div class="col-md-3 mb-3">
+          <label class="form-label">Confirm Password</label>
+          <input type="password" class="form-control" id="confirmPassword" required>
+          <div id="passwordError" class="text-danger mt-1"></div>
+        </div>
+      </div>
+
+      <!-- Profile Picture Upload -->
+      <div class="mb-3">
+        <label class="form-label">Upload Profile Picture</label>
+        <input type="file" class="form-control" name="profilePic" id="profilePic" accept="image/*" required>
+        <div class="mt-2">
+          <img id="previewImg" src="#" alt="Profile Preview" class="d-none img-thumbnail" style="max-width: 150px;">
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" class="btn btn-primary w-100">Sign Up</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("categorySelect").addEventListener("change", function () {
+      const category = this.value;
+      document.getElementById("doctorSpeciality").classList.toggle("d-none", category !== "Doctor");
+      document.getElementById("timeSlot").classList.toggle("d-none", category !== "Doctor");
+      document.getElementById("medicalType").classList.toggle("d-none", category !== "Medical");
+    });
+
+    function validatePassword() {
+      const password = document.getElementById("password").value;
+      const confirmPassword = document.getElementById("confirmPassword").value;
+      const errorDiv = document.getElementById("passwordError");
+
+      if (password !== confirmPassword) {
+        errorDiv.textContent = "Passwords do not match!";
+        return false;
+      }
+
+      errorDiv.textContent = "";
+      return true;
+    }
+
+    // Image Preview Functionality
+    document.getElementById("profilePic").addEventListener("change", function (event) {
+      const file = event.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          const previewImg = document.getElementById("previewImg");
+          previewImg.src = e.target.result;
+          previewImg.classList.remove("d-none");
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+  </script>
+</body>
+
+</html>
